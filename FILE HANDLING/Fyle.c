@@ -3,16 +3,16 @@
 #include<string.h>
 
  void read_line();
-void read_all_lines();
-void read_2nd_line_only();
+// void read_all_lines();
+// void read_2nd_line_only();
 
 int main(){
 
   read_line();
 
-read_all_lines();
+// read_all_lines();
 
-read_2nd_line_only();
+// read_2nd_line_only();
 
 }
 
@@ -29,7 +29,9 @@ fgets(fine,sizeof(fine),ptr);
 
 fclose(ptr);
 
-printf("\n1st Single line is\n%s",fine);
+printf("1st Single line is : %s2\n%d",fine,strlen(fine));
+
+
 
 }
 

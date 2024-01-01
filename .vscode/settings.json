@@ -2,6 +2,7 @@
     "files.associations": {
         "SIR.C": "cpp",
         "SIR Last Lec code.C": "cpp",
-        "demo code.C": "cpp"
+        "demo code.C": "cpp",
+        "typeinfo": "c"
     }
 }
