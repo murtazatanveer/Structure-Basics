@@ -21,14 +21,20 @@ if(c=='S'||c=='s'){
 
 signup_();
 
+
 printf("\nPress 1 for login : ");
 scanf("%d",&a);
+getchar();
 
 }
 
+
+
  if(c=='L'||c=='l'||a==1){
 
-if(login()){
+int b = login();
+
+if(b==1){
 
 printf("\n____LOGIN SUCCESSFULLY____\n");
 
