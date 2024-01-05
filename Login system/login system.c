@@ -28,29 +28,26 @@ getchar();
 
 }
 
+if(c=='l'||c=='L'||a==1){
 
+if (login())
+{
+    printf("\n_______Log In Successfully______");
 
- if(c=='L'||c=='l'||a==1){
+printf("\n\nPress 1 to Print user details : ");
+scanf("%d",&a);
 
-int b = login();
-
-if(b==1){
-
-printf("\n____LOGIN SUCCESSFULLY____\n");
-
+if(a==1){
+    fetch_details_from_file();
+}
+    
 }
 
 else{
-
-printf("\n___Incorrect ID or Pass____\n");
-
+    printf("\n_____Incorrect ID or Password_____");
 }
 
-
+    
+    
 }
-
 }
-
-
-
-

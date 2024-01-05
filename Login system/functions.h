@@ -4,6 +4,8 @@
 
 void signup();
 int login();
+void fetch_details_from_file();
+void print_details();
 struct details
 {
 
@@ -13,12 +15,68 @@ struct details
 
 } person[20];
 
+  
+
+void fetch_details_from_file(){
+
+ FILE *ptr = fopen("details.txt", "r");
+   char ch;
+ int linescounter = 0;
+   
+   do
+   {
+
+      ch = fgetc(ptr);
+
+      if (ch == '\n' || ch == EOF)
+      {
+
+         linescounter++;
+      }
+
+   } while (ch != EOF);
+
+   fclose(ptr);
+
+
+FILE *pt = fopen("details.txt","r");
+
+for(int i=0;i<linescounter/3;i++){
+
+fgets(person[i].name , sizeof(person[i].name ) , pt );
+fgets(person[i].address , sizeof(person[i].address ) , pt );
+fgets(person[i].password , sizeof(person[i].password ) , pt );
+
+}
+
+fclose(pt);
+
+system("cls");
+
+printf("\n\nEnter your ID to print your details : ");
+
+int id;
+scanf("%d",&id);
+
+system("cls");
+
+if((id-10)<=(linescounter/3)){
+
+print_details(person[id-10],id);
+
+}else{printf("\nEntered ID doesnot Exist");}
+
+
+
+}
+
 void signup_()
 {
 
    FILE *ptr = fopen("details.txt", "r");
    char ch;
-   int linescounter = 0;
+ int linescounter = 0;
+
    int id;
    do
    {
@@ -51,8 +109,25 @@ void signup_()
          printf("\nEnter Your Address : ");
          gets(person[i].address);
 
+
+         
+         
+         while(1){
+printf("\nlength of Password must be 5 digits or characters");
          printf("\nGenerate your password : ");
-         gets(person[i].password);
+        gets(person[i].password);
+
+  system("cls");
+
+
+        if(strlen(person[i].password)==5){
+
+break;
+
+        }
+
+printf("Password Length not meet");
+         }
 
          FILE *ptr = fopen("details.txt", "a");
 
@@ -64,14 +139,13 @@ void signup_()
       }
    }
 
-   system("cls");
-
-   printf("YOUR ID is : %d\n", id);
+ 
+   printf("YOUR ID is : %d\n", id+10);
    printf("YOUR PASS is : %s\n", person[i].password);
 
    FILE *p = fopen("id,pass.txt", "a");
 
-   fprintf(p,"%d,%s\n", id, person[i].password);
+   fprintf(p,"%d,%s\n", id+10, person[i].password);
 
    fclose(p);
 
@@ -81,17 +155,17 @@ void signup_()
 int login()
 {
 
-   char id_pass[30]="0,abc\n";
-   // printf("\nEnter your ID and PASS\nIn format (id,pass) : ");
-   // gets(id_pass);
+   char id_pass[9];
+   printf("\nEnter your ID and PASS\n\nIn format (id,pass) : ");
+   gets(id_pass);
 
-   id_pass[strlen(id_pass)]='\n';
+   
 
    FILE *ptr = fopen("id,pass.txt", "r");
 
 while (1)
         {
-            char buffer[26] = "";
+            char buffer[9] = "";
 
             fgets(buffer, sizeof(buffer), ptr);
 
@@ -115,4 +189,15 @@ while (1)
    
 
    return 0;
+}
+
+
+void print_details(struct details per,int id){
+
+   printf("\nName       : %s",per.name);
+printf("\nAddress    : %s",per.address);
+printf("\nID         : %d",id);
+printf("\nPassword   : %s",per.password);
+
+
 }
