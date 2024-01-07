@@ -25,30 +25,33 @@ int main(){
 //     printf("false");
 // }
 
-char my[7];
-gets(my);
+// char my[7];
+// gets(my);
 
-FILE *ptr = fopen("alp.txt","r");
+// FILE *ptr = fopen("alp.txt","r");
 
-while (1)
-        {
-            char buffer[7] = "";
-            fgets(buffer, sizeof(buffer),ptr);
-            if (strlen(buffer) == 0)
-            {
-                break;
-            }
+// while (1)
+//         {
+//             char buffer[7] = "";
+//             fgets(buffer, sizeof(buffer),ptr);
+//             if (strlen(buffer) == 0)
+//             {
+//                 break;
+//             }
             
-           if(strcmp(my,buffer)==0){
+//            if(strcmp(my,buffer)==0){
 
-printf("true");
-            break;
+// printf("true");
+//             break;
 
-           }
+//            }
 
-        }
+//         }
 
 
-fclose(ptr);
+// fclose(ptr);
+
+
 }
+
 

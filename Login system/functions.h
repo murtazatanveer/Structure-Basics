@@ -159,13 +159,13 @@ int login()
    printf("\nEnter your ID and PASS\n\nIn format (id,pass) : ");
    gets(id_pass);
 
-   
+     char buffer[9];
 
    FILE *ptr = fopen("id,pass.txt", "r");
 
 while (1)
         {
-            char buffer[9] = "";
+          
 
             fgets(buffer, sizeof(buffer), ptr);
 
@@ -195,8 +195,8 @@ while (1)
 void print_details(struct details per,int id){
 
    printf("\nName       : %s",per.name);
-printf("\nAddress    : %s",per.address);
-printf("\nID         : %d",id);
+printf("Address    : %s",per.address);
+printf("ID         : %d",id);
 printf("\nPassword   : %s",per.password);
 
 
