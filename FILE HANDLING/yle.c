@@ -6,8 +6,8 @@ void read_all_lines();
 
 int main(){
 
-readonechar();
-read_firstline();
+// readonechar();
+// read_firstline();
 read_all_lines();
 
 }
@@ -34,9 +34,10 @@ char first_line[50];
 
 fgets(first_line,sizeof(first_line),ptr);
 
-first_line[strlen(first_line)+1]='\0';
+// first_line[strlen(first_line)+1]='\0';
 
 printf("\nFirst line : %s",first_line);
+
 
 }
 
@@ -52,7 +53,7 @@ do{
 all_lines[i]=fgetc(ptr);
 i++;
 
-}while(all_lines[i-1] != EOF);
+}while(!feof(ptr));
 
 
 all_lines[i-1]='\0';
